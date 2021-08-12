@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>姚海培博客</title>
+    <meta name="keywords" content="姚海培博客,技术博客,个人博客">
+    <meta name="description" content="姚海培博客,技术博客,个人博客">
+    {include file="common/head" /}
+    <link rel="stylesheet" href="/static/admin/prism/prism.css">
+    <script type="text/javascript" src="/static/admin/prism/prism.js"></script>
+</head>
+<body>
+<!--导航-->
+{include file="common/menu" /}
+
+<!--内容-->
+<div class="container middle">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="row detail">
+                <div class="title">{$info.title}</div>
+                <ul class="information">
+                    <li>
+                        <i class="el-user"></i>
+                        {$info.author}
+                    </li>
+                    <li>
+                        <i class="el-time"></i>
+                        {:date('Y-m-d H:i:s',$info.createtime)}
+                    </li>
+                    <li>
+                    <a href="{:url('Index/category/index',array('id' => $info.id))}" title="{$info.classifyName}">
+                        <i class="el-th-list"></i>
+                        {$info.classifyName}
+                    </a>
+                    </li>
+                    <li>
+                        <i class="el-tags"></i>
+                        {$info.lable | TemplateLable}
+                    </li>
+                </ul>
+                <div class="content">{$info.content}</div>
+            </div>
+        </div>
+        <!--右边-->
+        {include file="common/right" /}
+    </div>
+</div>
+
+<!--底部-->
+{include file="common/foot" /}
+</body>
+
+</html>

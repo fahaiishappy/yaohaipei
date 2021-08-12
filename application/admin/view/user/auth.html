@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>新增公司</title>
+    {include file="common/head" /}
+    <style type="text/css">
+        .layui-form-checkbox{
+            margin-bottom: 10px
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button{
+        -webkit-appearance: none !important;
+        margin: 0;
+        }
+        input[type="number"]{-moz-appearance:textfield;}
+    </style>
+</head>
+
+<body>
+    <div class="layui-fluid">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md6">
+                <form>
+                    <input value="{$id}" name="id" type="hidden" />
+                    <input value="{$auth.status}" name="status" type="hidden" />
+                    <div class="layui-card">
+                        <div class="layui-card layui-form">
+                            <div class="layui-card-body layui-row layui-col-space10">
+                                <div class="layui-col-md12">
+                                    {volist name="info" id="vo"}
+                                        <input type="checkbox" name="gid[]" value="{$vo.id}" title="{$vo.title}" {if condition="in_array($vo['id'], $auth['group'])"}checked{/if}>
+                                    {/volist}
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {include file="common/foot" /}
+    <script>
+        layui.config({
+            base: '/static/admin/' //静态资源所在路径
+        }).extend({
+            index: 'lib/index' //主入口模块
+        }).use(['index', 'form', 'upload'], function () {
+
+        });
+    </script>
+</body>
+
+</html>

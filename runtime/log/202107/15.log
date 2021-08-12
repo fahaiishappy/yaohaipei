@@ -1,0 +1,60 @@
+---------------------------------------------------------------
+[ 2021-07-15T09:12:40+08:00 ] 127.0.0.1 POST www.hico.com/fahai.php/upload/editor_article.html
+[运行时间：0.090100s] [吞吐率：11.10req/s] [内存消耗：149.56kb] [文件加载：50]
+[ error ] [0]语法解析错误: syntax error, unexpected ':', expecting ']'[G:\wamp64\www\hico\application\admin\controller\Upload.php:110]
+---------------------------------------------------------------
+[ 2021-07-15T09:13:42+08:00 ] 127.0.0.1 POST www.hico.com/fahai.php/upload/editor_article.html
+[运行时间：0.004805s] [吞吐率：208.11req/s] [内存消耗：148.62kb] [文件加载：50]
+[ error ] [0]语法解析错误: syntax error, unexpected ':', expecting ']'[G:\wamp64\www\hico\application\admin\controller\Upload.php:110]
+---------------------------------------------------------------
+[ 2021-07-15T09:15:25+08:00 ] 127.0.0.1 POST www.hico.com/fahai.php/upload/article.html
+[运行时间：0.005551s] [吞吐率：180.14req/s] [内存消耗：148.57kb] [文件加载：50]
+[ error ] [0]语法解析错误: syntax error, unexpected ':', expecting ']'[G:\wamp64\www\hico\application\admin\controller\Upload.php:110]
+---------------------------------------------------------------
+[ 2021-07-15T09:17:02+08:00 ] 127.0.0.1 POST www.hico.com/fahai.php/upload/article.html
+[运行时间：0.005359s] [吞吐率：186.60req/s] [内存消耗：148.66kb] [文件加载：50]
+[ error ] [0]语法解析错误: syntax error, unexpected ':', expecting ']'[G:\wamp64\www\hico\application\admin\controller\Upload.php:110]
+---------------------------------------------------------------
+[ 2021-07-15T09:23:24+08:00 ] 127.0.0.1 POST www.hico.com/fahai.php/upload/editor_article.html
+[运行时间：0.006460s] [吞吐率：154.80req/s] [内存消耗：148.62kb] [文件加载：50]
+[ error ] [0]语法解析错误: syntax error, unexpected '{', expecting ']'[G:\wamp64\www\hico\application\admin\controller\Upload.php:110]
+---------------------------------------------------------------
+[ 2021-07-15T09:28:21+08:00 ] 127.0.0.1 POST www.hico.com/fahai.php/upload/editor_article.html
+[运行时间：0.006739s] [吞吐率：148.39req/s] [内存消耗：148.62kb] [文件加载：50]
+[ error ] [0]语法解析错误: syntax error, unexpected '{', expecting ']'[G:\wamp64\www\hico\application\admin\controller\Upload.php:110]
+---------------------------------------------------------------
+[ 2021-07-15T09:29:19+08:00 ] 127.0.0.1 POST www.hico.com/fahai.php/upload/editor_article.html
+[运行时间：0.005275s] [吞吐率：189.57req/s] [内存消耗：148.62kb] [文件加载：50]
+[ error ] [0]语法解析错误: syntax error, unexpected '{', expecting ']'[G:\wamp64\www\hico\application\admin\controller\Upload.php:110]
+---------------------------------------------------------------
+[ 2021-07-15T10:21:03+08:00 ] 127.0.0.1 POST www.hico.com/fahai.php/classify/add.html
+[运行时间：0.082725s] [吞吐率：12.09req/s] [内存消耗：489.11kb] [文件加载：72]
+[ error ] [10501]SQLSTATE[HY000]: General error: 1364 Field 'pid' doesn't have a default value[G:\wamp64\www\hico\thinkphp\library\think\db\Connection.php:453]
+---------------------------------------------------------------
+[ 2021-07-15T10:32:15+08:00 ] 127.0.0.1 GET www.hico.com/fahai.php/classify/index.html
+[运行时间：0.010079s] [吞吐率：99.22req/s] [内存消耗：148.55kb] [文件加载：50]
+[ error ] [0]语法解析错误: syntax error, unexpected '$cate' (T_VARIABLE)[G:\wamp64\www\hico\application\admin\controller\Classify.php:80]
+---------------------------------------------------------------
+[ 2021-07-15T11:10:49+08:00 ] 127.0.0.1 GET www.hico.com/fahai.php/classify/edit.html?id=14&label=
+[运行时间：0.069907s] [吞吐率：14.30req/s] [内存消耗：613.14kb] [文件加载：74]
+[ error ] [8]未定义变量: label[G:\wamp64\www\hico\runtime\temp\035b8b98e8d3e9edc14a8d794d531f51.php:22]
+---------------------------------------------------------------
+[ 2021-07-15T11:14:18+08:00 ] 127.0.0.1 GET www.hico.com/fahai.php/classify/edit.html?id=1&label=true
+[运行时间：0.032123s] [吞吐率：31.13req/s] [内存消耗：548.76kb] [文件加载：74]
+[ error ] [8]未定义变量: label[G:\wamp64\www\hico\runtime\temp\035b8b98e8d3e9edc14a8d794d531f51.php:22]
+---------------------------------------------------------------
+[ 2021-07-15T12:05:35+08:00 ] 127.0.0.1 GET www.hico.com/fahai.php/role/index.html?page=1&limit=10
+[运行时间：0.055513s] [吞吐率：18.01req/s] [内存消耗：516.28kb] [文件加载：72]
+[ error ] [10501]SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hico.admin_role' doesn't exist[G:\wamp64\www\hico\thinkphp\library\think\db\Connection.php:385]
+---------------------------------------------------------------
+[ 2021-07-15T12:05:37+08:00 ] 127.0.0.1 GET www.hico.com/fahai.php/menu/index.html?page=1&limit=10
+[运行时间：0.032737s] [吞吐率：30.55req/s] [内存消耗：518.60kb] [文件加载：72]
+[ error ] [10501]SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hico.admin_menu' doesn't exist[G:\wamp64\www\hico\thinkphp\library\think\db\Connection.php:385]
+---------------------------------------------------------------
+[ 2021-07-15T12:13:40+08:00 ] 127.0.0.1 GET www.hico.com/fahai.php/role/index.html?page=1&limit=10
+[运行时间：0.029886s] [吞吐率：33.46req/s] [内存消耗：515.02kb] [文件加载：72]
+[ error ] [10501]SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hico.admin_role' doesn't exist[G:\wamp64\www\hico\thinkphp\library\think\db\Connection.php:385]
+---------------------------------------------------------------
+[ 2021-07-15T12:13:50+08:00 ] 127.0.0.1 GET www.hico.com/fahai.php/role/index.html?page=1&limit=10
+[运行时间：0.015223s] [吞吐率：65.69req/s] [内存消耗：515.02kb] [文件加载：72]
+[ error ] [10501]SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hico.admin_role' doesn't exist[G:\wamp64\www\hico\thinkphp\library\think\db\Connection.php:385]

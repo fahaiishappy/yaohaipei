@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>姚海培博客</title>
+    <meta name="keywords" content="姚海培博客,技术博客,个人博客">
+    <meta name="description" content="姚海培博客,技术博客,个人博客">
+    {include file="common/head" /}
+</head>
+<body>
+<!--导航-->
+{include file="common/menu" /}
+
+<!--内容-->
+<div class="container middle">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="row ">
+                <ul class="art-list">
+                    {volist name="articleList" id="vo" key="key"}
+                        <li class="media">
+                            <div class="art-img">
+                                <a href="{:url('Index/detail/index',array('id' => $vo.id))}">
+                                    <img src="{$vo.img}">
+                                </a>
+                            </div>
+                            <div class="media-body art-content">
+                                <a class="title" href="{:url('Index/detail/index',array('id' => $vo.id))}">{$vo.title}</a>
+                                <p>{:strip_tags($vo.content)}</p>
+                                <ul class="media-foot">
+                                    <li class="foot-fast">
+                                        <div class="item">
+                                            <i class="el-time"></i>
+                                            {:date('Y-m-d H:i:s',$vo.createtime)}
+                                        </div>
+                                        <div class="item">
+                                            <i class="el-user"></i>
+                                            {$vo.author}
+                                        </div>
+                                        <div class="item">
+                                            <i class="el-tags"></i>
+                                            {$vo.lable | TemplateLable}
+                                        </div>
+                                        
+                                    </li>
+                                    <li class="foot-end">
+                                        <a href="{:url('Index/category/index',array('id' => $vo.id))}" title="{$vo.classifyName}">
+                                            <i class="el-th-list"></i>
+                                            {$vo.classifyName}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    {/volist}
+                </ul>
+            </div>
+            {if condition='$articleCount > 10'}
+                <div id="pagination1" class="page fl"></div>
+                <script type="text/javascript">
+                    $(function() {
+                        var totalPage;
+                        {$articleCount}%10 > 0 ? totalPage = parseInt({$articleCount}/10+1) : totalPage = parseInt({$articleCount}/10)
+                        $("#pagination1").pagination({
+                            currentPage: {$page},
+                            totalPage: totalPage,
+                            callback: function(current) {
+                                window.location.href='?page='+current;
+                            }
+                        });
+                    });
+                </script>
+            {/if}
+        </div>
+        <!--右边-->
+        {include file="common/right" /}
+    </div>
+</div>
+
+<!--底部-->
+{include file="common/foot" /}
+</body>
+</html>

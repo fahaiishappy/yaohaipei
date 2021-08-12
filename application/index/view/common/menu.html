@@ -1,0 +1,19 @@
+<!--导航-->
+<nav class="navbar navbar-expand-lg navbar-light nav-color-nav  navbar-lk text-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/"><img src="/static/index/image/logo-tra.png" alt="姚海培博客"></a>
+        <div class="collapse navbar-collapse justify-content-between">
+            <ul class="navbar-nav nav-color">
+                <li class="nav-item">
+                    <a class="nav-link {if condition='$nav eq 0'}active{/if}" href="/">首页</a>
+                </li>
+                {volist name="menu" id="vo" key="k"}
+                    <li class="nav-item">
+                        <a class="nav-link {if condition='$nav eq $vo.id'}active{/if}" href="{:url('Index/category/index',array('id' => $vo.id))}">{$vo.name}</a>
+                    </li> 
+                {/volist}
+            </ul>
+            <div class="sign" onclick="toSign()">登录</div>
+        </div>
+    </div>
+</nav>

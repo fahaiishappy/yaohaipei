@@ -1,0 +1,215 @@
+<!DOCTYPE html><html lang=zh-CN><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"><title>红人速推 | 网红直播带货一站式服务平台</title><script>document.addEventListener('DOMContentLoaded', function() {
+				document.documentElement.style.fontSize = document.documentElement.clientWidth / 20 + 'px'
+			})</script><link rel=stylesheet href="https://www.hongrensutui.com/h5/static/index.css?v=1.0"><script src="https://www.hongrensutui.com/h5/jquery.min.js?v=1.0"></script><script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js?v=1.0"></script><script src="https://www.hongrensutui.com/h5/store.min.js?v=1.0"></script><script>// var vConsole = new VConsole();</script></head><body><div id=app></div><script>document.oncontextmenu=function(e){
+			    e.preventDefault();
+			};
+			// h5登录
+			function wxlogin() {
+				var backurl = delParam('code');
+				let url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx91104fc1e784a6a7&redirect_uri=' + encodeURIComponent('https://www.hongrensutui.com/api/api/login?backurl=' + encodeURIComponent(backurl)) + '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
+				window.location.href = url;	
+			}
+			// 替换url参数
+			function changeURLArg(url, arg, arg_val) {
+				// url参数替换值
+				// url目标url
+				// arg需要替换的参数名称
+				// arg_val替换后的参数的值
+				// 参数替换后的url
+				var pattern = arg + '=([^&]*)';
+				var replaceText = arg + '=' + arg_val;
+				if (url.match(pattern)) {
+					var tmp = '/(' + arg + '=)([^&]*)/gi';
+					tmp = url.replace(eval(tmp), replaceText);
+					return tmp;
+				} else {
+					if (url.indexOf("?id") != -1) {
+						return url + '&' + replaceText;
+					} else if (url.indexOf("?from") != -1) {
+						return url + '?' + replaceText;
+					} else if (url.indexOf("?") != -1){
+						return url + '&' + replaceText;
+					}else{
+						return url + '?' + replaceText;
+					}
+				}
+				return url + '\n' + arg + '\n' + arg_val;
+			}
+			// 删除url中的参数
+			function delParam(paramKey) {
+				var url = window.location.href;    //页面url
+				var urlParam = window.location.hash.substr(1);   //页面参数
+				var beforeUrl = url.substr(0, url.indexOf("#"));   //页面主地址（参数之前地址）
+				var nextUrl = "";
+				var arr = new Array();
+				if (urlParam != "") {
+					var urlParamArr = urlParam.split("&"); //将参数按照&符分成数组
+					for (var i = 0; i < urlParamArr.length; i++) {
+						var paramArr = urlParamArr[i].split("="); //将参数键，值拆开
+						var str = paramArr[0];
+						str = str.replace("?", "").replace("/", "");
+						//如果键雨要删除的不一致，则加入到参数中
+						if (str != paramKey) {
+							arr.push(urlParamArr[i]);
+						}
+					}
+				}
+				if (arr.length > 0) {
+					nextUrl = arr.join("&");
+				}
+				url = beforeUrl + '#/' + nextUrl;
+				url = url.replace("#//", "#/")
+				return url;
+			}
+			//获取url中的参数
+			function getUrlParam(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+				var r = window.location.search.substr(1).match(reg); //匹配目标参数
+				if (r != null) return unescape(r[2]); return null; //返回参数值
+			}
+			
+			function share(title,desc,imgUrl,id) {
+				var url = window.location.href;
+				var myurl = delParam('code');
+					myurl = changeURLArg(myurl,'invite',id);
+				$.ajax({
+					url : "https://www.hongrensutui.com/api/api/share",
+					data : {"url" : url},
+					type: 'post',
+					dataType : "json",
+					success : function(result) {
+						if (result) { // 请求成功 
+							jWeixin.config({
+								debug : false,
+								appId : result.appid,
+								timestamp : result.timestamp,
+								nonceStr : result.noncestr,
+								signature : result.signature,
+								jsApiList : ['checkJsApi', 'onMenuShareAppMessage','onMenuShareTimeline']
+							});
+							jWeixin.ready(function() {
+								//分享给朋友
+								jWeixin.onMenuShareAppMessage({
+									title : title, // 分享标题
+									desc : desc, // 分享描述
+									link : myurl, // 分享链接
+									imgUrl : imgUrl, // 分享图标
+									type : 'link', // 分享类型,music、video或link，不填默认为link
+									success : function() {
+										// 用户确认分享后执行的回调函数
+										console.log('success1')
+									},
+									cancel : function() {
+										// 用户取消分享后执行的回调函数
+										console.log('cancel1')
+									}
+								});
+								jWeixin.onMenuShareTimeline({
+									title : title, // 分享标题
+									desc : desc, // 分享描述
+									link : myurl, // 分享链接
+									imgUrl : imgUrl, // 分享图标
+									type : 'link', // 分享类型,music、video或link，不填默认为link
+									success : function() {
+										// 用户确认分享后执行的回调函数
+										console.log('success2')
+									},
+									cancel : function() {
+										// 用户取消分享后执行的回调函数
+										console.log('cancel2')
+									}
+								});
+							});
+						}
+					}
+				});
+			};
+			
+			var browser = {
+				versions: function () {
+					var u = navigator.userAgent, app = navigator.appVersion;
+					return {//移动终端浏览器版本信息
+						trident: u.indexOf('Trident') > -1, //IE内核
+						presto: u.indexOf('Presto') > -1, //opera内核
+						webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+						gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+						mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+						ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+						android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+						iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+						iPad: u.indexOf('iPad') > -1, //是否iPad
+						webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+					};
+				}(),
+				language: (navigator.browserLanguage || navigator.language).toLowerCase()
+			}
+			function checkWechat() {
+				if (browser.versions.mobile) {
+					var ua = navigator.userAgent.toLowerCase();
+					if (ua.match(/MicroMessenger/i) == "micromessenger") {
+						return true;
+					} else {
+						return false;
+					}
+				} else {
+					return false;
+				}
+			}
+			// var isWechat = checkWechat();
+			// if (isWechat) {
+			// 	if (typeof store.get('userInfo') == 'undefined') {
+			// 		wxlogin();
+			// 	}
+			// }
+			function jsApiCall(parameters,info,tourl){
+				WeixinJSBridge.invoke(
+					'getBrandWCPayRequest',
+					{
+						 "appId":parameters.appId,
+						 "nonceStr":parameters.nonceStr,
+						 "package":parameters.package,
+						 "paySign":parameters.paySign,
+						 "signType":parameters.signType,
+						 "timeStamp":parameters.timeStamp
+					},
+					function(res){
+						var url;
+						if(info.type == 1){
+							url = "https://www.hongrensutui.com/api/pay/complete_order";
+						}else if(info.type == 2){
+							url = "https://www.hongrensutui.com/api/pay/complete_card";
+						}else if(info.type == 3){
+							url = "https://www.hongrensutui.com/api/pay/complete_collegeorder";
+						}else if(info.type == 4){
+							url = "https://www.hongrensutui.com/api/pay/complete_categoryorder";
+						}
+						if(res.err_msg == 'get_brand_wcpay_request:ok'){
+							$.ajax({
+								url:url,
+								data:{
+									openid:info.openid,
+									id:info.orderid,
+								},
+								dataType:'json',
+								success:function(result){
+									uni.redirectTo({
+									    url: tourl
+									});
+								},
+							});
+						}
+					}
+				);
+			}
+			function callpay(parameters,info,tourl){
+				if (typeof WeixinJSBridge == "undefined"){
+					if( document.addEventListener ){
+						document.addEventListener('WeixinJSBridgeReady', jsApiCall(parameters,info,tourl),false);
+					}else if (document.attachEvent){
+						document.attachEvent('WeixinJSBridgeReady', jsApiCall(parameters,info,tourl));
+						document.attachEvent('onWeixinJSBridgeReady', jsApiCall(parameters,infotourl));
+					}
+				}else{
+					jsApiCall(parameters,info,tourl);
+				}
+			}</script><script src=https://www.hongrensutui.com/h5/static/js/chunk-vendors.7f4810cb.js></script><script src=https://www.hongrensutui.com/h5/static/js/index.96659730.js></script></body></html>

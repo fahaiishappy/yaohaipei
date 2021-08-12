@@ -1,0 +1,4 @@
+---------------------------------------------------------------
+[ 2021-07-20T16:33:07+08:00 ] 127.0.0.1 GET www.hico.com/fahai.php/article/edit.html?id=1
+[运行时间：0.051133s] [吞吐率：19.56req/s] [内存消耗：550.30kb] [文件加载：72]
+[ error ] [8]未定义变量: data[G:\wamp64\www\hico\application\admin\controller\Article.php:118]

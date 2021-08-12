@@ -1,0 +1,22 @@
+---------------------------------------------------------------
+[ 2021-07-22T15:14:45+08:00 ] 127.0.0.1 GET www.yaohaipei.com/category/1/lable/0.html
+[ error ] [0]语法解析错误: syntax error, unexpected '}'
+---------------------------------------------------------------
+[ 2021-07-22T15:20:27+08:00 ] 127.0.0.1 GET www.yaohaipei.com/category/1.html
+[ error ] [0]语法解析错误: syntax error, unexpected '}'
+---------------------------------------------------------------
+[ 2021-07-22T15:20:40+08:00 ] 127.0.0.1 GET www.yaohaipei.com/category/1.html
+[运行时间：0.013658s] [吞吐率：73.22req/s] [内存消耗：159.66kb] [文件加载：51]
+[ error ] [0]语法解析错误: syntax error, unexpected '}'[G:\wamp64\www\yaohaipei\application\index\controller\Category.php:16]
+---------------------------------------------------------------
+[ 2021-07-22T07:26:03+00:00 ] 127.0.0.1 GET www.yaohaipei.com/category/1.html
+[运行时间：0.010705s] [吞吐率：93.41req/s] [内存消耗：131.77kb] [文件加载：47]
+[ error ] [0]Parse error: syntax error, unexpected '$lable' (T_VARIABLE)[G:\wamp64\www\yaohaipei\application\common.php:1206]
+---------------------------------------------------------------
+[ 2021-07-22T15:37:38+08:00 ] 127.0.0.1 GET www.yaohaipei.com/category/5.html
+[运行时间：0.052736s] [吞吐率：18.96req/s] [内存消耗：444.70kb] [文件加载：67]
+[ error ] [8]未定义变量: lable[G:\wamp64\www\yaohaipei\application\index\controller\Category.php:18]
+---------------------------------------------------------------
+[ 2021-07-22T15:47:48+08:00 ] 127.0.0.1 GET www.yaohaipei.com/category/3.html
+[运行时间：0.007679s] [吞吐率：130.23req/s] [内存消耗：153.30kb] [文件加载：51]
+[ error ] [0]语法解析错误: syntax error, unexpected '$where' (T_VARIABLE)[G:\wamp64\www\yaohaipei\application\index\controller\Category.php:19]

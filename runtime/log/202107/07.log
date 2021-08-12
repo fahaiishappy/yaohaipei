@@ -1,0 +1,8 @@
+---------------------------------------------------------------
+[ 2021-07-07T11:29:49+08:00 ] 127.0.0.1 GET www.hico.com/admin/menu/index.html?page=1&limit=10
+[运行时间：0.128350s] [吞吐率：7.79req/s] [内存消耗：537.75kb] [文件加载：74]
+[ error ] [10501]SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hico.admin_menu' doesn't exist[G:\wamp64\www\hico\thinkphp\library\think\db\Connection.php:385]
+---------------------------------------------------------------
+[ 2021-07-07T11:29:50+08:00 ] 127.0.0.1 GET www.hico.com/admin/role/index.html?page=1&limit=10
+[运行时间：0.074388s] [吞吐率：13.44req/s] [内存消耗：535.06kb] [文件加载：74]
+[ error ] [10501]SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hico.admin_role' doesn't exist[G:\wamp64\www\hico\thinkphp\library\think\db\Connection.php:385]

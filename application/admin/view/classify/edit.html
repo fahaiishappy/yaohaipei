@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>新增{if condition="$label == 1"}标签{else /}分类{/if}</title>
+	{include file="common/head" /}
+</head>
+
+<body>
+	<div class="layui-fluid">
+		<div class="layui-row layui-col-space15">
+			<div class="layui-col-md6">
+				<form>
+					<div class="layui-card">
+						<input type="hidden" name="id" value="{$info.id}">
+						{if condition="$label == 1"}
+							<div class="layui-card-header">所属分类</div>
+							<div class="layui-card-body layui-row layui-col-space10">
+								<div class="layui-col-md12 layui-form">
+									<select name="pid" id="pid" lay-verify="" lay-filter="pid">
+										{volist name="cate" id="vo"}
+											{if condition="$vo.pid == 0 && $vo.id == $info.pid"}
+												<option value="{$vo.id}" selected>{$vo.pre}{$vo.name}</option>
+											{/if}
+										{/volist}
+									</select>
+								</div>
+							</div>
+							<div class="layui-card-header">背景色</div>
+							<div class="layui-card-body layui-row layui-col-space10">
+								<div class="layui-col-md12" style="display: flex;">
+									<input type="text" name="background" autocomplete="off" class="layui-input" value="{$info.background}">
+									<div id="colorpicker"></div>
+								</div>
+							</div>
+						{else /}
+							<input type="hidden" name="pid" value="{$info.pid}">
+						{/if}
+						<div class="layui-card-header">{if condition="$label == 1"}标签名称{else /}分类名称{/if}</div>
+						<div class="layui-card-body layui-row layui-col-space10">
+							<div class="layui-col-md12">
+								<input type="text" name="name" value="{$info.name}" autocomplete="off" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-card-header">排序</div>
+						<div class="layui-card-body layui-row layui-col-space10">
+							<div class="layui-col-md12">
+								<input type="text" name="sort" value="{$info.sort}" autocomplete="off" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-card layui-form">
+							<div class="layui-card-header">是否启用</div>
+							<div class="layui-card-body layui-row layui-col-space10">
+								<div class="layui-col-md12">
+									<input type="radio" name="status" value="1" title="启用" {if condition="$info.status eq 1"}checked{/if}>
+									<input type="radio" name="status" value="0" title="禁用" {if condition="$info.status eq 0"}checked{/if}>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	{include file="common/foot" /}
+	<script>
+		layui.config({
+			base: '/static/admin/' //静态资源所在路径
+		}).extend({
+			index: 'lib/index' //主入口模块
+		}).use(['colorpicker', 'index', 'form'], function () {
+			var $ = layui.$
+				, admin = layui.admin
+				, element = layui.element
+				, colorpicker = layui.colorpicker
+				, form = layui.form;
+			colorpicker.render({
+				elem: '#colorpicker', //绑定元素
+				color: 'blue',
+				change: function(color){
+			      $('input[name="background"]').val(color)
+			    }
+			});
+			form.render(null, 'component-form-element');
+			element.render('breadcrumb', 'breadcrumb');
+
+			form.on('submit(component-form-element)', function (data) {
+				layer.msg(JSON.stringify(data.field));
+				return false;
+			});
+		});
+	</script>
+</body>
+
+</html>

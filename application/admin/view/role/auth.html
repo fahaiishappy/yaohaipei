@@ -1,0 +1,45 @@
+ <!DOCTYPE html>
+<html>
+
+<head>
+	<title>新增公司</title>
+	{include file="common/head" /}
+	<link rel="stylesheet" href="/static/admin/layui_ext/eleTree/eleTree.css" media="all">
+</head>
+
+<body>
+	<div class="layui-fluid">
+		<div class="layui-row layui-col-space15">
+			<div class="layui-col-md6">
+				<form>
+					<div class="eleTree ele1" ></div>
+				</form>
+			</div>
+		</div>
+	</div>
+	{include file="common/foot" /}
+	<script>
+			layui.config({
+					base: '/static/admin/layui_ext/eleTree/' //静态资源所在路径
+			}).extend({
+					index: 'lib/index' //主入口模块
+			}).use(['jquery','eleTree'], function () {
+				var $ = layui.jquery;
+            	var eleTree = layui.eleTree;
+
+				//基本演示
+				eleTree.render({
+					elem: '.ele1',
+					data: {$authtree},
+					defaultExpandAll: true,// 是否默认展开所有节点
+					showCheckbox: true,// 节点是否可被选择
+					checkStrictly: true,// 在显示复选框的情况下，是否严格的遵循父子不互相关联的做法
+					showLine: true,//是否显示连线
+					drag: true,
+               		accordion: true
+				});
+			});
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+---------------------------------------------------------------
+[ 2021-07-23T09:31:18+08:00 ] 127.0.0.1 GET www.yaohaipei.com/detail/32.html
+[运行时间：0.098492s] [吞吐率：10.15req/s] [内存消耗：495.46kb] [文件加载：71]
+[ error ] [8]未定义变量: banner[G:\wamp64\www\yaohaipei\runtime\temp\444ee8dfa6445a747513c39e6170c02c.php:62]
+---------------------------------------------------------------
+[ 2021-07-23T09:31:34+08:00 ] 127.0.0.1 GET www.yaohaipei.com/detail/32.html
+[运行时间：0.068845s] [吞吐率：14.53req/s] [内存消耗：491.17kb] [文件加载：71]
+[ error ] [8]未定义变量: articleList[G:\wamp64\www\yaohaipei\runtime\temp\444ee8dfa6445a747513c39e6170c02c.php:60]
+---------------------------------------------------------------
+[ 2021-07-23T10:05:16+08:00 ] 127.0.0.1 GET www.yaohaipei.com/detail/32.html
+[运行时间：0.032088s] [吞吐率：31.16req/s] [内存消耗：156.05kb] [文件加载：51]
+[ error ] [0]语法解析错误: syntax error, unexpected '->' (T_OBJECT_OPERATOR)[G:\wamp64\www\yaohaipei\application\index\controller\Detail.php:11]
+---------------------------------------------------------------
+[ 2021-07-23T10:05:47+08:00 ] 127.0.0.1 GET www.yaohaipei.com/detail/32.html
+[运行时间：0.034379s] [吞吐率：29.09req/s] [内存消耗：383.56kb] [文件加载：66]
+[ error ] [0]method not exist:think\db\Query->fing[G:\wamp64\www\yaohaipei\thinkphp\library\think\db\Query.php:103]
+---------------------------------------------------------------
+[ 2021-07-23T10:07:15+08:00 ] 127.0.0.1 GET www.yaohaipei.com/detail/32.html
+[运行时间：0.054858s] [吞吐率：18.23req/s] [内存消耗：446.43kb] [文件加载：68]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in where clause is ambiguous[G:\wamp64\www\yaohaipei\thinkphp\library\think\db\Connection.php:385]
+---------------------------------------------------------------
+[ 2021-07-23T10:07:38+08:00 ] 127.0.0.1 GET www.yaohaipei.com/detail/32.html
+[运行时间：0.044853s] [吞吐率：22.30req/s] [内存消耗：485.38kb] [文件加载：71]
+[ error ] [8]未定义数组索引: author[G:\wamp64\www\yaohaipei\runtime\temp\444ee8dfa6445a747513c39e6170c02c.php:63]

@@ -1,0 +1,132 @@
+---------------------------------------------------------------
+[ 2021-06-18T09:44:13+08:00 ] 127.0.0.1 GET www.hico.com/
+[运行时间：0.952390s] [吞吐率：1.05req/s] [内存消耗：635.70kb] [文件加载：68]
+[ error ] [10501]SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hico.admin_cewebrity' doesn't exist[G:\wamp64\www\hico\thinkphp\library\think\db\Connection.php:385]
+---------------------------------------------------------------
+[ 2021-06-18T10:19:49+08:00 ] 127.0.0.1 GET www.hico.com/admin/menu/index.html?page=1&limit=10
+[运行时间：0.026869s] [吞吐率：37.22req/s] [内存消耗：509.91kb] [文件加载：72]
+[ error ] [10501]SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hico.admin_college_category' doesn't exist[G:\wamp64\www\hico\thinkphp\library\think\db\Connection.php:385]
+---------------------------------------------------------------
+[ 2021-06-18T10:19:52+08:00 ] 127.0.0.1 GET www.hico.com/admin/menu/index.html?page=1&limit=10
+[运行时间：0.037629s] [吞吐率：26.58req/s] [内存消耗：509.91kb] [文件加载：72]
+[ error ] [10501]SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hico.admin_college_category' doesn't exist[G:\wamp64\www\hico\thinkphp\library\think\db\Connection.php:385]
+---------------------------------------------------------------
+[ 2021-06-18T10:20:12+08:00 ] 127.0.0.1 GET www.hico.com/admin/menu/index.html?page=1&limit=10
+[运行时间：0.036382s] [吞吐率：27.49req/s] [内存消耗：509.91kb] [文件加载：72]
+[ error ] [10501]SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hico.admin_college_category' doesn't exist[G:\wamp64\www\hico\thinkphp\library\think\db\Connection.php:385]
+---------------------------------------------------------------
+[ 2021-06-18T10:45:11+08:00 ] 127.0.0.1 GET www.hico.com/admin/classify/index.html
+[运行时间：0.027030s] [吞吐率：37.00req/s] [内存消耗：167.77kb] [文件加载：52]
+[ error ] [0]语法解析错误: syntax error, unexpected ',', expecting variable (T_VARIABLE)[G:\wamp64\www\hico\application\admin\controller\Classify.php:8]
+---------------------------------------------------------------
+[ 2021-06-18T10:46:20+08:00 ] 127.0.0.1 GET www.hico.com/admin/classify/add.html
+[运行时间：0.026538s] [吞吐率：37.68req/s] [内存消耗：546.16kb] [文件加载：70]
+[ error ] [0]致命错误: Call to undefined function app\admin\controller\modify()[G:\wamp64\www\hico\application\admin\controller\Classify.php:57]
+---------------------------------------------------------------
+[ 2021-06-18T12:01:32+08:00 ] 127.0.0.1 POST www.hico.com/admin/article/add.html
+[运行时间：0.030287s] [吞吐率：33.02req/s] [内存消耗：548.82kb] [文件加载：71]
+[ error ] [8]未定义数组索引: addtime[G:\wamp64\www\hico\application\admin\controller\Article.php:95]
+---------------------------------------------------------------
+[ 2021-06-18T13:45:06+08:00 ] 127.0.0.1 POST www.hico.com/admin/article/add.html
+[运行时间：0.033993s] [吞吐率：29.42req/s] [内存消耗：548.85kb] [文件加载：71]
+[ error ] [8]未定义数组索引: addtime[G:\wamp64\www\hico\application\admin\controller\Article.php:95]
+---------------------------------------------------------------
+[ 2021-06-18T13:46:40+08:00 ] 127.0.0.1 POST www.hico.com/admin/article/add.html
+[运行时间：0.025796s] [吞吐率：38.77req/s] [内存消耗：536.27kb] [文件加载：70]
+[ error ] [0]数据表字段不存在:[type][G:\wamp64\www\hico\thinkphp\library\think\db\Builder.php:115]
+---------------------------------------------------------------
+[ 2021-06-18T13:58:01+08:00 ] 127.0.0.1 POST www.hico.com/admin/classify/del.html
+[运行时间：0.035660s] [吞吐率：28.04req/s] [内存消耗：546.01kb] [文件加载：70]
+[ error ] [0]致命错误: Class 'app\admin\controller\Db' not found[G:\wamp64\www\hico\application\admin\controller\Classify.php:163]
+---------------------------------------------------------------
+[ 2021-06-18T14:02:19+08:00 ] 127.0.0.1 POST www.hico.com/admin/classify/add.html
+[运行时间：0.027177s] [吞吐率：36.80req/s] [内存消耗：507.66kb] [文件加载：74]
+[ error ] [10501]SQLSTATE[HY000]: General error: 1364 Field 'updatetime' doesn't have a default value[G:\wamp64\www\hico\thinkphp\library\think\db\Connection.php:453]
+---------------------------------------------------------------
+[ 2021-06-18T14:02:35+08:00 ] 127.0.0.1 POST www.hico.com/admin/classify/add.html
+[运行时间：0.034949s] [吞吐率：28.61req/s] [内存消耗：507.66kb] [文件加载：74]
+[ error ] [10501]SQLSTATE[HY000]: General error: 1364 Field 'updatetime' doesn't have a default value[G:\wamp64\www\hico\thinkphp\library\think\db\Connection.php:453]
+---------------------------------------------------------------
+[ 2021-06-18T14:03:15+08:00 ] 127.0.0.1 POST www.hico.com/admin/classify/add.html
+[运行时间：0.028107s] [吞吐率：35.58req/s] [内存消耗：507.66kb] [文件加载：74]
+[ error ] [10501]SQLSTATE[HY000]: General error: 1364 Field 'updatetime' doesn't have a default value[G:\wamp64\www\hico\thinkphp\library\think\db\Connection.php:453]
+---------------------------------------------------------------
+[ 2021-06-18T14:06:38+08:00 ] 127.0.0.1 POST www.hico.com/admin/classify/add.html
+[运行时间：0.038236s] [吞吐率：26.15req/s] [内存消耗：507.66kb] [文件加载：74]
+[ error ] [10501]SQLSTATE[HY000]: General error: 1364 Field 'updatetime' doesn't have a default value[G:\wamp64\www\hico\thinkphp\library\think\db\Connection.php:453]
+---------------------------------------------------------------
+[ 2021-06-18T14:12:16+08:00 ] 127.0.0.1 GET www.hico.com/admin/classify/add.html
+[运行时间：0.031111s] [吞吐率：32.14req/s] [内存消耗：580.14kb] [文件加载：76]
+[ error ] [8]Array to string conversion[G:\wamp64\www\hico\runtime\temp\109bb2db4114ea3b306d2543de087032.php:24]
+---------------------------------------------------------------
+[ 2021-06-18T14:13:13+08:00 ] 127.0.0.1 GET www.hico.com/admin/classify/index.html
+[运行时间：0.004915s] [吞吐率：203.46req/s] [内存消耗：167.78kb] [文件加载：52]
+[ error ] [0]语法解析错误: syntax error, unexpected 'return' (T_RETURN)[G:\wamp64\www\hico\application\admin\controller\Classify.php:215]
+---------------------------------------------------------------
+[ 2021-06-18T14:13:34+08:00 ] 127.0.0.1 GET www.hico.com/admin/classify/index.html?page=1&limit=10
+[运行时间：0.012597s] [吞吐率：79.38req/s] [内存消耗：562.60kb] [文件加载：72]
+[ error ] [0]致命错误: Call to undefined function app\admin\controller\v_dump()[G:\wamp64\www\hico\application\admin\controller\Classify.php:214]
+---------------------------------------------------------------
+[ 2021-06-18T14:13:34+08:00 ] 127.0.0.1 GET www.hico.com/admin/classify/add.html
+[运行时间：0.030356s] [吞吐率：32.94req/s] [内存消耗：562.56kb] [文件加载：72]
+[ error ] [0]致命错误: Call to undefined function app\admin\controller\v_dump()[G:\wamp64\www\hico\application\admin\controller\Classify.php:214]
+---------------------------------------------------------------
+[ 2021-06-18T14:17:02+08:00 ] 127.0.0.1 GET www.hico.com/admin/classify/index.html?page=1&limit=10
+[运行时间：0.013678s] [吞吐率：73.11req/s] [内存消耗：563.92kb] [文件加载：73]
+[ error ] [8]Array to string conversion[G:\wamp64\www\hico\application\admin\controller\Classify.php:214]
+---------------------------------------------------------------
+[ 2021-06-18T14:17:03+08:00 ] 127.0.0.1 GET www.hico.com/admin/classify/add.html
+[运行时间：0.026041s] [吞吐率：38.40req/s] [内存消耗：563.88kb] [文件加载：73]
+[ error ] [8]Array to string conversion[G:\wamp64\www\hico\application\admin\controller\Classify.php:214]
+---------------------------------------------------------------
+[ 2021-06-18T14:21:53+08:00 ] 127.0.0.1 GET www.hico.com/admin/classify/index.html?page=1&limit=10
+[运行时间：0.014270s] [吞吐率：70.08req/s] [内存消耗：563.92kb] [文件加载：73]
+[ error ] [8]Array to string conversion[G:\wamp64\www\hico\application\admin\controller\Classify.php:214]
+---------------------------------------------------------------
+[ 2021-06-18T14:21:54+08:00 ] 127.0.0.1 GET www.hico.com/admin/classify/add.html
+[运行时间：0.031701s] [吞吐率：31.54req/s] [内存消耗：563.88kb] [文件加载：73]
+[ error ] [8]Array to string conversion[G:\wamp64\www\hico\application\admin\controller\Classify.php:214]
+---------------------------------------------------------------
+[ 2021-06-18T14:28:04+08:00 ] 127.0.0.1 GET www.hico.com/admin/classify/index.html
+[运行时间：0.014896s] [吞吐率：67.13req/s] [内存消耗：168.55kb] [文件加载：52]
+[ error ] [0]语法解析错误: syntax error, unexpected 'return' (T_RETURN)[G:\wamp64\www\hico\application\admin\controller\Classify.php:215]
+---------------------------------------------------------------
+[ 2021-06-18T14:37:10+08:00 ] 127.0.0.1 GET www.hico.com/admin/classify/index.html?page=1&limit=10
+[运行时间：0.028257s] [吞吐率：35.39req/s] [内存消耗：552.96kb] [文件加载：73]
+[ error ] [2]json_decode() expects parameter 1 to be string, array given[G:\wamp64\www\hico\application\admin\controller\Classify.php:25]
+---------------------------------------------------------------
+[ 2021-06-18T15:09:01+08:00 ] 127.0.0.1 GET www.hico.com/admin/classify/index.html
+[运行时间：0.011694s] [吞吐率：85.51req/s] [内存消耗：167.75kb] [文件加载：52]
+[ error ] [0]语法解析错误: syntax error, unexpected '}'[G:\wamp64\www\hico\application\admin\controller\Classify.php:33]
+---------------------------------------------------------------
+[ 2021-06-18T15:12:39+08:00 ] 127.0.0.1 GET www.hico.com/admin/classify/index.html?page=1&limit=10
+[运行时间：0.013641s] [吞吐率：73.31req/s] [内存消耗：552.98kb] [文件加载：74]
+[ error ] [10501]SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'pname FROM `admin_classify` `a` INNER JOIN `admin_classify` `b` ON `a`.`pid`=`b`' at line 1[G:\wamp64\www\hico\thinkphp\library\think\db\Connection.php:385]
+---------------------------------------------------------------
+[ 2021-06-18T15:15:39+08:00 ] 127.0.0.1 GET www.hico.com/admin/classify/index.html?page=1&limit=10&search_name=s&search_status=
+[运行时间：0.013789s] [吞吐率：72.52req/s] [内存消耗：554.58kb] [文件加载：74]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.name' in 'where clause'[G:\wamp64\www\hico\thinkphp\library\think\db\Connection.php:385]
+---------------------------------------------------------------
+[ 2021-06-18T15:15:43+08:00 ] 127.0.0.1 GET www.hico.com/admin/classify/index.html?page=1&limit=10&search_name=S&search_status=
+[运行时间：0.032176s] [吞吐率：31.08req/s] [内存消耗：554.58kb] [文件加载：74]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.name' in 'where clause'[G:\wamp64\www\hico\thinkphp\library\think\db\Connection.php:385]
+---------------------------------------------------------------
+[ 2021-06-18T15:16:28+08:00 ] 127.0.0.1 GET www.hico.com/admin/classify/index.html?page=1&limit=10&search_name=S&search_status=
+[运行时间：0.015742s] [吞吐率：63.53req/s] [内存消耗：538.93kb] [文件加载：74]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'name' in where clause is ambiguous[G:\wamp64\www\hico\thinkphp\library\think\db\Connection.php:385]
+---------------------------------------------------------------
+[ 2021-06-18T15:16:29+08:00 ] 127.0.0.1 GET www.hico.com/admin/classify/index.html?page=1&limit=10&search_name=S&search_status=
+[运行时间：0.012647s] [吞吐率：79.07req/s] [内存消耗：537.84kb] [文件加载：74]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'name' in where clause is ambiguous[G:\wamp64\www\hico\thinkphp\library\think\db\Connection.php:385]
+---------------------------------------------------------------
+[ 2021-06-18T15:16:29+08:00 ] 127.0.0.1 GET www.hico.com/admin/classify/index.html?page=1&limit=10&search_name=S&search_status=
+[运行时间：0.013935s] [吞吐率：71.76req/s] [内存消耗：537.84kb] [文件加载：74]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'name' in where clause is ambiguous[G:\wamp64\www\hico\thinkphp\library\think\db\Connection.php:385]
+---------------------------------------------------------------
+[ 2021-06-18T17:00:38+08:00 ] 127.0.0.1 POST www.hico.com/admin/upload/article.html
+[运行时间：0.014411s] [吞吐率：69.39req/s] [内存消耗：167.89kb] [文件加载：52]
+[ error ] [0]语法解析错误: syntax error, unexpected 'switch' (T_SWITCH)[G:\wamp64\www\hico\application\admin\controller\Upload.php:58]
+---------------------------------------------------------------
+[ 2021-06-18T17:17:40+08:00 ] 127.0.0.1 GET www.hico.com/
+[运行时间：0.020081s] [吞吐率：49.80req/s] [内存消耗：430.67kb] [文件加载：68]
+[ error ] [10501]SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hico.admin_cewebrity' doesn't exist[G:\wamp64\www\hico\thinkphp\library\think\db\Connection.php:385]

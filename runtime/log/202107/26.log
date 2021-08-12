@@ -1,0 +1,36 @@
+---------------------------------------------------------------
+[ 2021-07-26T13:44:22+08:00 ] 127.0.0.1 GET www.yaohaipei.com/Index/search/index.html?search=asdasd
+[运行时间：0.030749s] [吞吐率：32.52req/s] [内存消耗：153.80kb] [文件加载：51]
+[ error ] [0]语法解析错误: syntax error, unexpected 'dump' (T_STRING)[G:\wamp64\www\yaohaipei\application\index\controller\Search.php:12]
+---------------------------------------------------------------
+[ 2021-07-26T13:45:32+08:00 ] 127.0.0.1 GET www.yaohaipei.com/Index/search/index.html?search=
+[运行时间：0.005202s] [吞吐率：192.23req/s] [内存消耗：153.50kb] [文件加载：51]
+[ error ] [0]语法解析错误: syntax error, unexpected 'dump' (T_STRING)[G:\wamp64\www\yaohaipei\application\index\controller\Search.php:12]
+---------------------------------------------------------------
+[ 2021-07-26T13:45:37+08:00 ] 127.0.0.1 GET www.yaohaipei.com/Index/search/index.html?search=
+[运行时间：0.005110s] [吞吐率：195.69req/s] [内存消耗：153.50kb] [文件加载：51]
+[ error ] [0]语法解析错误: syntax error, unexpected 'dump' (T_STRING)[G:\wamp64\www\yaohaipei\application\index\controller\Search.php:12]
+---------------------------------------------------------------
+[ 2021-07-26T13:45:43+08:00 ] 127.0.0.1 GET www.yaohaipei.com/Index/search/index.html?search=
+[运行时间：0.004857s] [吞吐率：205.89req/s] [内存消耗：153.50kb] [文件加载：51]
+[ error ] [0]语法解析错误: syntax error, unexpected 'dump' (T_STRING)[G:\wamp64\www\yaohaipei\application\index\controller\Search.php:12]
+---------------------------------------------------------------
+[ 2021-07-26T13:47:57+08:00 ] 127.0.0.1 GET www.yaohaipei.com/Index/search/index.html?search=+++ada+++
+[运行时间：0.005817s] [吞吐率：171.91req/s] [内存消耗：153.52kb] [文件加载：51]
+[ error ] [0]语法解析错误: syntax error, unexpected 'dump' (T_STRING)[G:\wamp64\www\yaohaipei\application\index\controller\Search.php:12]
+---------------------------------------------------------------
+[ 2021-07-26T13:48:07+08:00 ] 127.0.0.1 GET www.yaohaipei.com/Index/search/index.html?search=+++ada+++
+[运行时间：0.107728s] [吞吐率：9.28req/s] [内存消耗：439.81kb] [文件加载：67]
+[ error ] [8]未定义数组索引: searchName[G:\wamp64\www\yaohaipei\application\index\controller\Search.php:11]
+---------------------------------------------------------------
+[ 2021-07-26T13:50:59+08:00 ] 127.0.0.1 GET www.yaohaipei.com/Index/search/index.html?search=+++ada+++
+[运行时间：0.071897s] [吞吐率：13.91req/s] [内存消耗：439.34kb] [文件加载：66]
+[ error ] [0]模板文件不存在:G:\wamp64\www\yaohaipei\public/../application/index\view\search\index.html[G:\wamp64\www\yaohaipei\thinkphp\library\think\view\driver\Think.php:82]
+---------------------------------------------------------------
+[ 2021-07-26T13:51:00+08:00 ] 127.0.0.1 GET www.yaohaipei.com/Index/search/index.html?search=+++ada+++
+[运行时间：0.031442s] [吞吐率：31.80req/s] [内存消耗：438.13kb] [文件加载：66]
+[ error ] [0]模板文件不存在:G:\wamp64\www\yaohaipei\public/../application/index\view\search\index.html[G:\wamp64\www\yaohaipei\thinkphp\library\think\view\driver\Think.php:82]
+---------------------------------------------------------------
+[ 2021-07-26T13:51:00+08:00 ] 127.0.0.1 GET www.yaohaipei.com/Index/search/index.html?search=+++ada+++
+[运行时间：0.021056s] [吞吐率：47.49req/s] [内存消耗：438.13kb] [文件加载：66]
+[ error ] [0]模板文件不存在:G:\wamp64\www\yaohaipei\public/../application/index\view\search\index.html[G:\wamp64\www\yaohaipei\thinkphp\library\think\view\driver\Think.php:82]

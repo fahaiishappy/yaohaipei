@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>新增公司</title>
+    {include file="common/head" /}
+</head>
+
+<body>
+    <div class="layui-fluid">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md6">
+                <form>
+                    <input type="hidden" name="type" value="{$type}" />
+                    <div class="layui-card">
+                        <div class="layui-card-header">所属上级</div>
+                        <div class="layui-card-body layui-row layui-col-space10">
+                            <div class="layui-col-md12 layui-form">
+                                <select name="pid" id="pid" lay-verify="" lay-filter="pid">
+                                    <option value="0">顶级分类</option>
+                                    {volist name="authList" id="vo"}
+                                    <option value="{$vo.id}" {eq name="vo['id']" value="$pid"}selected="selected"{/eq}>{$vo.pre}{$vo.title}</option>
+                                    {/volist}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-card-header">排序</div>
+                        <div class="layui-card-body layui-row layui-col-space10">
+                            <div class="layui-col-md12">
+                                <input type="text" name="sort" value="0" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-card-header">菜单名称</div>
+                        <div class="layui-card-body layui-row layui-col-space10">
+                            <div class="layui-col-md12">
+                                <input type="text" name="title" placeholder="请输入菜单名称" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-card-header">菜单地址</div>
+                        <div class="layui-card-body layui-row layui-col-space10">
+                            <div class="layui-col-md12">
+                                <input type="text" name="name" placeholder="请输入菜单地址" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-card-header">菜单按钮样式</div>
+                        <div class="layui-card-body layui-row layui-col-space10">
+                            <div class="layui-col-md12">
+                                <input type="text" name="icon" placeholder="请输入按钮样式" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-card layui-form">
+                            <div class="layui-card-header">是否启用</div>
+                            <div class="layui-card-body layui-row layui-col-space10">
+                                <div class="layui-col-md12">
+                                    <input type="radio" name="status" value="1" title="启用" checked>
+                                    <input type="radio" name="status" value="0" title="禁用">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-card layui-form">
+                            <div class="layui-card-header">是否按钮</div>
+                            <div class="layui-card-body layui-row layui-col-space10">
+                                <div class="layui-col-md12">
+                                    <input type="radio" name="isbtn" value="0" title="菜单" checked>
+                                    <input type="radio" name="isbtn" value="1" title="按钮">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {include file="common/foot" /}
+    <script>
+        layui.config({
+            base: '/static/admin/' //静态资源所在路径
+        }).extend({
+            index: 'lib/index' //主入口模块
+        }).use(['index', 'jquery', 'form'], function () {
+
+        });
+    </script>
+</body>
+
+</html>

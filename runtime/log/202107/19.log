@@ -1,8 +1,0 @@
----------------------------------------------------------------
-[ 2021-07-19T17:07:59+08:00 ] 127.0.0.1 GET www.hico.com/fahai.php/picture/article_img.html
-[运行时间：0.181740s] [吞吐率：5.50req/s] [内存消耗：148.62kb] [文件加载：50]
-[ error ] [0]语法解析错误: syntax error, unexpected '}'[G:\wamp64\www\hico\application\admin\controller\Picture.php:222]
----------------------------------------------------------------
-[ 2021-07-19T17:26:26+08:00 ] 127.0.0.1 GET www.hico.com/fahai.php/article/add.html
-[运行时间：0.086643s] [吞吐率：11.54req/s] [内存消耗：574.95kb] [文件加载：74]
-[ error ] [8]未定义变量: lable[G:\wamp64\www\hico\runtime\temp\8acc200058f79d6f824f8acb5d2a36e6.php:58]

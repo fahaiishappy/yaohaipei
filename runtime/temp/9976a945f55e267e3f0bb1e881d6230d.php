@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:74:"G:\wamp64\www\yaohaipei\public/../application/admin\view\article\edit.html";i:1628490847;s:63:"G:\wamp64\www\yaohaipei\application\admin\view\common\head.html";i:1626926141;s:63:"G:\wamp64\www\yaohaipei\application\admin\view\common\foot.html";i:1626926140;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:74:"G:\wamp64\www\yaohaipei\public/../application/admin\view\article\edit.html";i:1629179781;s:63:"G:\wamp64\www\yaohaipei\application\admin\view\common\head.html";i:1629166939;s:63:"G:\wamp64\www\yaohaipei\application\admin\view\common\foot.html";i:1629166939;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -49,11 +49,11 @@
 			<div class="layui-col-md12">
 				<form class="layui-form">
 					<div class="layui-card">
-						<input type="hidden" name="id"  value="<?php echo $info['id']; ?>">
+						<input type="hidden" name="id" id="id"  value="<?php echo $info['id']; ?>">
 						<div class="layui-card-header">所属分类</div>
 						<div class="layui-card-body layui-row layui-col-space10">
 							<div class="layui-col-md12 layui-form">
-								<select name="pid" id="pid">
+								<select name="pid" id="pid" lay-filter="pid">
 									<?php if(is_array($cate) || $cate instanceof \think\Collection || $cate instanceof \think\Paginator): $i = 0; $__LIST__ = $cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;if($vo['pid'] == 0): ?>
 											<option value="<?php echo $vo['id']; ?>" <?php if($info['pid'] == $vo['id']): ?>selected<?php endif; ?>><?php echo $vo['pre']; ?><?php echo $vo['name']; ?></option>
 										<?php endif; endforeach; endif; else: echo "" ;endif; ?>
@@ -62,9 +62,11 @@
 						</div>
 						<label class="layui-card-header">标签</label>
 						<div class="layui-input-block" style="display: flex; margin-left: 15px;">
-							<?php if(is_array($lable) || $lable instanceof \think\Collection || $lable instanceof \think\Paginator): $i = 0; $__LIST__ = $lable;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
-								<input type="checkbox" name="lable[]" value="<?php echo $vo['id']; ?>" title="<?php echo $vo['name']; ?>" <?php if(in_array($vo['id'],$info['lable'])): ?>checked<?php endif; ?>>
-							<?php endforeach; endif; else: echo "" ;endif; ?>
+							<div id="lable">
+								<?php if(is_array($lable) || $lable instanceof \think\Collection || $lable instanceof \think\Paginator): $i = 0; $__LIST__ = $lable;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+									<input type="checkbox" name="lable[]" value="<?php echo $vo['id']; ?>" title="<?php echo $vo['name']; ?>" <?php if(in_array($vo['id'],$info['lable'])): ?>checked<?php endif; ?>>
+								<?php endforeach; endif; else: echo "" ;endif; ?>
+							</div>
 							<div class="add-lable"><i class="layui-icon layui-icon-addition"></i></div>
 						</div>
 						<div class="layui-card-header">排序</div>
@@ -258,6 +260,38 @@
                         $('#fileName').val(res.originalName);
 	                }
 	            }
+			});
+
+			// 获取分类下标签
+			form.on('select(pid)', function(data){
+				if(data.value != ''){
+					$.ajax({
+						type: 'post',
+						url: "<?php echo url('admin/article/lable'); ?>",
+						data: {
+							id: data.value,
+							articleid: $('#id').val()
+						},
+						success: function (res) {
+							console.log(res)
+							var tpl = '';
+							if (res.code == 200) {
+								for (const item of res.list) {
+									console.log(item.id,'id')
+									console.log(res.lable,'lable')
+									console.log($.inArray(item.id.toString(), res.lable),'inArray')
+									if($.inArray(item.id.toString(), res.lable) != -1){
+										tpl += '<input type="checkbox" name="lable[]" checked value="'+item.id+'" title="'+item.name+'">'
+									}else{
+										tpl += '<input type="checkbox" name="lable[]" value="'+item.id+'" title="'+item.name+'">'
+									}
+								}
+								$('#lable').html(tpl);
+								form.render(); 
+							}
+						}
+					});
+				}
 			});
 		});
 		// 编辑器

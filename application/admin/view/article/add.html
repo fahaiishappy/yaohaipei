@@ -46,7 +46,7 @@
 						<div class="layui-card-header">所属分类</div>
 						<div class="layui-card-body layui-row layui-col-space10">
 							<div class="layui-col-md12 layui-form">
-								<select name="pid" id="pid">
+								<select name="pid" id="pid" lay-filter="pid">
 									{volist name="cate" id="vo"}
 										{if condition="$vo.pid == 0"}
 											<option value="{$vo.id}">{$vo.pre}{$vo.name}</option>
@@ -57,9 +57,11 @@
 						</div>
 						<label class="layui-card-header">标签</label>
 						<div class="layui-input-block" style="display: flex; margin-left: 15px;">
-							{volist name="lable" id="vo"}
-								<input type="checkbox" name="lable[]" value="{$vo.id}" title="{$vo.name}">
-							{/volist}
+							<div id="lable">
+								{volist name="lable" id="vo"}
+									<input type="checkbox" name="lable[]" value="{$vo.id}" title="{$vo.name}">
+								{/volist}
+							</div>
 							<div class="add-lable"><i class="layui-icon layui-icon-addition"></i></div>
 						</div>
 						<div class="layui-card-header">排序</div>
@@ -255,24 +257,20 @@
 				if(data.value != ''){
 					$.ajax({
 						type: 'post',
-						url: "{:url('/useradmin/commission/select_dept')}",
-						data: {company_id: data.value},
+						url: "{:url('admin/article/lable')}",
+						data: {id: data.value},
 						success: function (res) {
-							var tpl = '<option value="">请选择部门</option>';
+							console.log(res)
+							var tpl = '';
 							if (res.code == 200) {
 								for (const item of res.list) {
-									tpl += '<option value="'+item.id+'">'+item.name+'</option>';
+									tpl += '<input type="checkbox" name="lable[]" value="'+item.id+'" title="'+item.name+'">'
 								}
-								$('#search_company_dept').empty().html(tpl);
-								form.render('select');
-							} else {
-								layer.alert(res.msg);
+								$('#lable').html(tpl);
+								form.render(); 
 							}
 						}
 					});
-				}else{
-					$('#search_company_dept').empty().html('<option value="">请选择部门</option>');
-					form.render('select');
 				}
 			});
 		});

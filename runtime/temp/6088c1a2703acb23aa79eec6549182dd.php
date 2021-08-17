@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"G:\wamp64\www\yaohaipei\public/../application/admin\view\article\add.html";i:1627353528;s:63:"G:\wamp64\www\yaohaipei\application\admin\view\common\head.html";i:1626926141;s:63:"G:\wamp64\www\yaohaipei\application\admin\view\common\foot.html";i:1626926140;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"G:\wamp64\www\yaohaipei\public/../application/admin\view\article\add.html";i:1629172854;s:63:"G:\wamp64\www\yaohaipei\application\admin\view\common\head.html";i:1629166939;s:63:"G:\wamp64\www\yaohaipei\application\admin\view\common\foot.html";i:1629166939;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -52,7 +52,7 @@
 						<div class="layui-card-header">所属分类</div>
 						<div class="layui-card-body layui-row layui-col-space10">
 							<div class="layui-col-md12 layui-form">
-								<select name="pid" id="pid">
+								<select name="pid" id="pid" lay-filter="pid">
 									<?php if(is_array($cate) || $cate instanceof \think\Collection || $cate instanceof \think\Paginator): $i = 0; $__LIST__ = $cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;if($vo['pid'] == 0): ?>
 											<option value="<?php echo $vo['id']; ?>"><?php echo $vo['pre']; ?><?php echo $vo['name']; ?></option>
 										<?php endif; endforeach; endif; else: echo "" ;endif; ?>
@@ -61,15 +61,26 @@
 						</div>
 						<label class="layui-card-header">标签</label>
 						<div class="layui-input-block" style="display: flex; margin-left: 15px;">
-							<?php if(is_array($lable) || $lable instanceof \think\Collection || $lable instanceof \think\Paginator): $i = 0; $__LIST__ = $lable;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
-								<input type="checkbox" name="lable[]" value="<?php echo $vo['id']; ?>" title="<?php echo $vo['name']; ?>">
-							<?php endforeach; endif; else: echo "" ;endif; ?>
+							<div id="lable">
+								<?php if(is_array($lable) || $lable instanceof \think\Collection || $lable instanceof \think\Paginator): $i = 0; $__LIST__ = $lable;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+									<input type="checkbox" name="lable[]" value="<?php echo $vo['id']; ?>" title="<?php echo $vo['name']; ?>">
+								<?php endforeach; endif; else: echo "" ;endif; ?>
+							</div>
 							<div class="add-lable"><i class="layui-icon layui-icon-addition"></i></div>
 						</div>
 						<div class="layui-card-header">排序</div>
 						<div class="layui-card-body layui-row layui-col-space10">
 							<div class="layui-col-md12">
 								<input type="text" name="sort" value="0" autocomplete="off" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-card layui-form">
+							<div class="layui-card-header">是否推荐</div>
+							<div class="layui-card-body layui-row layui-col-space10">
+								<div class="layui-col-md12">
+									<input type="radio" name="recommend" value="0" title="否" checked>
+									<input type="radio" name="recommend" value="1" title="是">
+								</div>
 							</div>
 						</div>
 						<div class="layui-card-header">文章标题</div>
@@ -250,24 +261,20 @@
 				if(data.value != ''){
 					$.ajax({
 						type: 'post',
-						url: "<?php echo url('/useradmin/commission/select_dept'); ?>",
-						data: {company_id: data.value},
+						url: "<?php echo url('admin/article/lable'); ?>",
+						data: {id: data.value},
 						success: function (res) {
-							var tpl = '<option value="">请选择部门</option>';
+							console.log(res)
+							var tpl = '';
 							if (res.code == 200) {
 								for (const item of res.list) {
-									tpl += '<option value="'+item.id+'">'+item.name+'</option>';
+									tpl += '<input type="checkbox" name="lable[]" value="'+item.id+'" title="'+item.name+'">'
 								}
-								$('#search_company_dept').empty().html(tpl);
-								form.render('select');
-							} else {
-								layer.alert(res.msg);
+								$('#lable').html(tpl);
+								form.render(); 
 							}
 						}
 					});
-				}else{
-					$('#search_company_dept').empty().html('<option value="">请选择部门</option>');
-					form.render('select');
 				}
 			});
 		});

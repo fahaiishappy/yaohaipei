@@ -43,11 +43,11 @@
 			<div class="layui-col-md12">
 				<form class="layui-form">
 					<div class="layui-card">
-						<input type="hidden" name="id"  value="{$info.id}">
+						<input type="hidden" name="id" id="id"  value="{$info.id}">
 						<div class="layui-card-header">所属分类</div>
 						<div class="layui-card-body layui-row layui-col-space10">
 							<div class="layui-col-md12 layui-form">
-								<select name="pid" id="pid">
+								<select name="pid" id="pid" lay-filter="pid">
 									{volist name="cate" id="vo"}
 										{if condition="$vo.pid == 0"}
 											<option value="{$vo.id}" {if condition="$info.pid eq $vo.id"}selected{/if}>{$vo.pre}{$vo.name}</option>
@@ -58,9 +58,11 @@
 						</div>
 						<label class="layui-card-header">标签</label>
 						<div class="layui-input-block" style="display: flex; margin-left: 15px;">
-							{volist name="lable" id="vo"}
-								<input type="checkbox" name="lable[]" value="{$vo.id}" title="{$vo.name}" {if condition="in_array($vo['id'],$info['lable'])"}checked{/if}>
-							{/volist}
+							<div id="lable">
+								{volist name="lable" id="vo"}
+									<input type="checkbox" name="lable[]" value="{$vo.id}" title="{$vo.name}" {if condition="in_array($vo['id'],$info['lable'])"}checked{/if}>
+								{/volist}
+							</div>
 							<div class="add-lable"><i class="layui-icon layui-icon-addition"></i></div>
 						</div>
 						<div class="layui-card-header">排序</div>
@@ -254,6 +256,34 @@
                         $('#fileName').val(res.originalName);
 	                }
 	            }
+			});
+
+			// 获取分类下标签
+			form.on('select(pid)', function(data){
+				if(data.value != ''){
+					$.ajax({
+						type: 'post',
+						url: "{:url('admin/article/lable')}",
+						data: {
+							id: data.value,
+							articleid: $('#id').val()
+						},
+						success: function (res) {
+							var tpl = '';
+							if (res.code == 200) {
+								for (const item of res.list) {
+									if($.inArray(item.id.toString(), res.lable) != -1){
+										tpl += '<input type="checkbox" name="lable[]" checked value="'+item.id+'" title="'+item.name+'">'
+									}else{
+										tpl += '<input type="checkbox" name="lable[]" value="'+item.id+'" title="'+item.name+'">'
+									}
+								}
+								$('#lable').html(tpl);
+								form.render(); 
+							}
+						}
+					});
+				}
 			});
 		});
 		// 编辑器

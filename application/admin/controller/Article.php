@@ -6,6 +6,7 @@ use think\Db;
 // 文章管理
 class Article extends Common
 {
+
     //文章列表
     public function index()
     {
@@ -176,6 +177,22 @@ class Article extends Common
             }
         }
         echo $this->fetch();
+    }
+
+    // 获取分类下标签
+    public function lable()
+    {
+        if ($this->request->isPost()) {
+            $data   = input('post.');
+            $articleinfo = model('Article')->where(['id' => $data['articleid']])->find();
+            $lable = model('Classify')->where('pid = '.$data['id'])->order('id asc')->select();
+            return json([
+                'code' => 200,
+                'list' => $lable,
+                'lable' => explode(',',$articleinfo['lable']),
+                'msg'  => '获取成功',
+            ]);
+    }
     }
 
     // 修改排序

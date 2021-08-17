@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:75:"G:\wamp64\www\yaohaipei\public/../application/admin\view\index\console.html";i:1626926141;s:63:"G:\wamp64\www\yaohaipei\application\admin\view\common\head.html";i:1626926141;s:63:"G:\wamp64\www\yaohaipei\application\admin\view\common\foot.html";i:1626926140;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:75:"G:\wamp64\www\yaohaipei\public/../application/admin\view\index\console.html";i:1629166939;s:63:"G:\wamp64\www\yaohaipei\application\admin\view\common\head.html";i:1629166939;s:63:"G:\wamp64\www\yaohaipei\application\admin\view\common\foot.html";i:1629166939;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>

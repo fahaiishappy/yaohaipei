@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:73:"G:\wamp64\www\yaohaipei\public/../application/index\view\index\index.html";i:1628492194;s:63:"G:\wamp64\www\yaohaipei\application\index\view\common\head.html";i:1627271842;s:63:"G:\wamp64\www\yaohaipei\application\index\view\common\menu.html";i:1628492356;s:64:"G:\wamp64\www\yaohaipei\application\index\view\common\right.html";i:1628492183;s:63:"G:\wamp64\www\yaohaipei\application\index\view\common\link.html";i:1626937027;s:63:"G:\wamp64\www\yaohaipei\application\index\view\common\foot.html";i:1626934409;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:73:"G:\wamp64\www\yaohaipei\public/../application/index\view\index\index.html";i:1629166939;s:63:"G:\wamp64\www\yaohaipei\application\index\view\common\head.html";i:1629166939;s:63:"G:\wamp64\www\yaohaipei\application\index\view\common\menu.html";i:1629166939;s:64:"G:\wamp64\www\yaohaipei\application\index\view\common\right.html";i:1629166939;s:63:"G:\wamp64\www\yaohaipei\application\index\view\common\link.html";i:1629166939;s:63:"G:\wamp64\www\yaohaipei\application\index\view\common\foot.html";i:1629166939;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>

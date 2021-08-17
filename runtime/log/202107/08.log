@@ -1,4 +1,0 @@
----------------------------------------------------------------
-[ 2021-07-08T16:14:43+08:00 ] 127.0.0.1 GET www.hico.com/admin/article/index.html
-[运行时间：0.030478s] [吞吐率：32.81req/s] [内存消耗：168.23kb] [文件加载：52]
-[ error ] [0]语法解析错误: syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$'[G:\wamp64\www\hico\application\admin\controller\Article.php:218]
